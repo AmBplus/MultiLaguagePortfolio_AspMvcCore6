@@ -1,6 +1,7 @@
-﻿<header class="header text-center">
+﻿@using Resources
+<header class="header text-center">
     <div class="force-overflow">
-        <h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">متن ساختگی</a></h1>
+        <h1 class="blog-name pt-lg-4 mb-0"><a href="index.html"></a></h1>
 
         <nav class="navbar navbar-expand-lg navbar-dark">
 
@@ -11,10 +12,10 @@
 
             <div id="navigation" class="collapse navbar-collapse flex-column">
                 <div class="profile-section pt-3 pt-lg-0">
-                    <img class="profile-image mb-3 rounded-circle mx-auto" src="assets/images/profile.png" alt="image">
+                    <img class="profile-image mb-3 rounded-circle mx-auto img-thumbnail" src="~/assets/images/myImage.jpg" alt="image">
 
                     <div class="bio mb-3">
-                        سلام ساختگی هستم خوش آمدید به وب سایت من
+                     @(PersonalInfo.AbouteMeTitle)
                     </div>
                     <ul class="social-list list-inline py-2 mx-auto">
                         <li class="list-inline-item"><a href="#"><i class="fab fa-twitter fa-fw"></i></a></li>
@@ -29,31 +30,20 @@
                 </div>
                 <ul class="navbar-nav flex-column text-right">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">
-                            <i class="fas fa-user fa-fw ml-2"></i>صفحه اصلی<span class="sr-only">(current)</span>
+                        <a class="nav-link text-center" href="index.html">
+                            <i class="fas fa-user fa-fw ml-2 "></i>@(PageTitles.Index)
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">
-                            <i class="fas fa-envelope-open-text fa-fw ml-2"></i>ارتباط با ما
+                        <a class="nav-link text-center" href="contact.html">
+                            <i class="fas fa-envelope-open-text fa-fw ml-2"></i>@(PageTitles.ContactMe)
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">
-                            <span class="fi fi-us"></span>  
-                        </a>
-                    </li>
+                 
                     <li class="nav-item">
                         <partial name="PartialViews/_ChangeCulture"/>
                     </li>
-                    <li class="nav-item">
-                        <span class="fi fi-ir"></span>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">
-                            <span class="fi fi-us"></span>  
-                        </a>
-                    </li>
+                
                 </ul>
             </div>
         </nav>

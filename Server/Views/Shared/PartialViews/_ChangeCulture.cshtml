@@ -1,4 +1,6 @@
 ﻿@using Settings
+@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.TagHelpers
 @inject Microsoft.Extensions.Options.IOptions<ApplicationSettings>? ApplicationSettings 
 @{
     if(ApplicationSettings == null || ApplicationSettings.Value == null || ApplicationSettings?.Value?.CultureSettings?.SupportedCultureNames==null )return;
@@ -10,9 +12,11 @@
     {
         @if (country!= cultureName)
         {
-            <a asp-page="/ChangeCulture" asp-route-name="@country" class="nav-link text-dark">
-                @(country[..(country.IndexOf('-'))])
-                <span class="fi fi-@country[3..].ToLower()"></span>
+            var countryTwoFirstLetter = country[(country.IndexOf('-')+1)..];
+            RegionInfo ri = new RegionInfo(countryTwoFirstLetter); 
+            <a asp-controller="ChangeCulture" asp-action="Index" asp-route-name="@country" class="nav-link text-white text-center fw-bold">
+                @(ri.NativeName)
+                <span class="fi fi-@countryTwoFirstLetter.ToLower()"></span>
             </a>
         }
     }

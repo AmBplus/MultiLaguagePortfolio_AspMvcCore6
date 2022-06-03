@@ -61,7 +61,9 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hi , I Am Amir MassoumBeygi , Backend Developer with some skill in FrontEnd  , Wellcome To My Website.
+        ///   Looks up a localized string similar to Hi  I`m Amir MassoumBeygi
+        ///a Backend Developer
+        /// Wellcome To My Website.
         /// </summary>
         public static string AbouteMeTitle {
             get {

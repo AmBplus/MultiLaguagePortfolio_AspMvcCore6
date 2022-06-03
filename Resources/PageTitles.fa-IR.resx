@@ -120,8 +120,8 @@
   <data name="About" xml:space="preserve">
     <value>درباره ما</value>
   </data>
-  <data name="Contact" xml:space="preserve">
-    <value>تماس با ما</value>
+  <data name="ContactMe" xml:space="preserve">
+    <value>تماس با من</value>
   </data>
   <data name="GitHubCaption" xml:space="preserve">
     <value>گیت هاب</value>

@@ -18,12 +18,4 @@
     <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Views\Shared\PartialViews\SpicialProject.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Views\Shared\PartialViews\SpicialProject.cshtml" />
-  </ItemGroup>
-
 </Project>

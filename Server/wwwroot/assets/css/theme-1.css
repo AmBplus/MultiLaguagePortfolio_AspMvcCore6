@@ -8955,7 +8955,7 @@ button.bg-dark:focus {
     }
     .mr-md-0,
     .mx-md-0 {
-        margin-right: 3rem !important
+        margin-right: 0 !important
     }
     .mb-md-0,
     .my-md-0 {
@@ -9403,7 +9403,7 @@ button.bg-dark:focus {
     }
     .ml-lg-5,
     .mx-lg-5 {
-        margin-left: 0rem !important
+        margin-left: 3rem !important
     }
     .p-lg-0 {
         padding: 0 !important
@@ -11488,6 +11488,7 @@ a.resume-link:hover {
     .project-thumb {
         max-width: 200px
     }
+ 
 }
 
 @media (min-width: 1200px) {
@@ -11522,6 +11523,10 @@ a.resume-link:hover {
     }
     .resume-aside {
         border-right: 0
+    }
+    .main-wrapper {
+        margin-left: 0px;
+        
     }
 }
 
