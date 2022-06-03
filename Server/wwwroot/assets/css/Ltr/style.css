@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'IranSans';
+    src: url('../../../assets/fonts/IranianSans.eot'),
+         url('../../../assets/fonts/IranianSans.eot') format('embedded-opentype'),
+         url('../../../assets/fonts/IranianSans.woff') format('woff'),
+         url('../../../assets/fonts/IranianSans.ttf') format('truetype'),
+         url('../../../assets/fonts/IranianSans.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+.list-inline {
+    padding-right: 0px !important;
+}
+
+.list-inline-item:not(:last-child){
+    margin-left: .5rem;
+}
+
+.section-title{
+    padding-right: 1.5rem;
+}

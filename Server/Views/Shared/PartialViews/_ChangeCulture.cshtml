@@ -1,0 +1,18 @@
+﻿@using Settings
+@inject Microsoft.Extensions.Options.IOptions<ApplicationSettings>? ApplicationSettings 
+@{
+    if(ApplicationSettings == null || ApplicationSettings.Value == null || ApplicationSettings?.Value?.CultureSettings?.SupportedCultureNames==null )return;
+    var cultureName = System.Threading.Thread.CurrentThread.CurrentUICulture.Name;
+    var supportedCulture = ApplicationSettings.Value.CultureSettings.SupportedCultureNames?.ToList();
+}
+
+    @foreach (var country  in supportedCulture!)
+    {
+        @if (country!= cultureName)
+        {
+            <a asp-page="/ChangeCulture" asp-route-name="@country" class="nav-link text-dark">
+                @(country[..(country.IndexOf('-'))])
+                <span class="fi fi-@country[3..].ToLower()"></span>
+            </a>
+        }
+    }

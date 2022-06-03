@@ -1,0 +1,28 @@
+﻿@using Resources
+
+<section class="about-me-section p-3 p-lg-5 theme-bg-light">
+    <div class="container">
+        <div class="profile-teaser media flex-column flex-lg-row">
+            <img class="profile-image mb-3 mb-lg-0 ml-lg-5 mr-md-0" src="assets/images/me.jpeg" alt="">
+            <div class="media-body">
+                <h2 class="name font-weight-bold mb-1">@Resources.PersonalInfo.MyName</h2>
+                <div class="tagline mb-3">@(PersonalInfo.Job)</div>
+                <div class="bio mb-4">
+                    @(PersonalInfo.AboutMeFullDetail)
+                </div>
+                <div class="mb-4">
+                    <a class="btn btn-primary mr-2 mb-3" href="http://www.atriya.com">
+                        <i class="fas fa-arrow-alt-circle-right ml-2"></i><span class="d-none d-md-inline">
+                          @(Resources.PageTitles.GitHubCaption)
+                        </span>
+                    </a>
+                    <a class="btn btn-secondary mb-3" href="#">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        <span class="d-none d-md-inline"> @Resources.PageTitles.SeeWork </span> 
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

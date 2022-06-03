@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "flag-icon-css@6.4.4",
+      "destination": "wwwroot/lib/flag-icon-css/"
+    }
+  ]
+}

@@ -1,17 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Diagnostics;
+using Infrastructure.Middlewares;
+using Microsoft.AspNetCore.Http.Headers;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using Server.Models;
-using System.Diagnostics;
+using Settings;
 
 namespace Server.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IOptions
+            <ApplicationSettings> applicationSettingsOptions)
         {
-            _logger = logger;
+            ApplicationSettings =
+                applicationSettingsOptions.Value;
         }
+
+        private ApplicationSettings ApplicationSettings { get; }
 
         public IActionResult Index()
         {
@@ -21,6 +27,33 @@ namespace Server.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public IActionResult ChangeCulture(string? cultureName)
+        {
+            RequestHeaders? typedHeaders =
+                HttpContext.Request.GetTypedHeaders();
+
+            string? httpReferer =
+                typedHeaders?.Referer?.AbsoluteUri;
+
+            if (string.IsNullOrWhiteSpace(httpReferer)) return RedirectToAction("Index");
+            string? defaultCultureName =
+                ApplicationSettings.CultureSettings?.DefaultCultureName;
+            List<string>? supportedCultureNames =
+                ApplicationSettings.CultureSettings?.SupportedCultureNames?
+                    .ToList();
+            if (string.IsNullOrWhiteSpace(cultureName))
+                cultureName =
+                    defaultCultureName;
+            if (supportedCultureNames == null ||
+                supportedCultureNames.Contains(cultureName!) == false)
+                cultureName =
+                    defaultCultureName;
+            CultureCookieHandlerMiddleware.SetCulture(cultureName);
+            CultureCookieHandlerMiddleware
+                .CreateCookie(HttpContext, cultureName!);
+            return Redirect(httpReferer);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

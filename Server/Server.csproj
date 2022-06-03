@@ -7,9 +7,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Views\Shared\Error.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj" />
     <ProjectReference Include="..\Models\Models.csproj" />
     <ProjectReference Include="..\Resources\Resources.csproj" />
+    <ProjectReference Include="..\Settingsa\Settings.csproj" />
     <ProjectReference Include="..\Shared\Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Shared\PartialViews\SpicialProject.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Shared\PartialViews\SpicialProject.cshtml" />
   </ItemGroup>
 
 </Project>
