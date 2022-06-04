@@ -1,6 +1,8 @@
 // **************************************************
 
 using Infrastructure.Middlewares;
+using Microsoft.EntityFrameworkCore;
+using Server;
 using Settings;
 using ConnectionStrings = Resources.ConnectionStrings;
 
@@ -24,14 +26,14 @@ WebApplicationOptions webApplicationOptions =
     };
 WebApplicationBuilder builder =
     WebApplication.CreateBuilder(webApplicationOptions);
-
+builder.Services.AddDbContextPool<PortfolioContext>(op => op.UseSqlServer(ConnectionStrings.SqlServerConnectionSa));
 builder.Services.AddControllersWithViews();
 
 builder.Services.Configure<ApplicationSettings>
     (builder.Configuration.GetSection(ApplicationSettings.KeyName));
 
 string? connectionString =
-    builder.Configuration.GetConnectionString(ConnectionStrings.SqlLiteConnection);
+    builder.Configuration.GetConnectionString(ConnectionStrings.SqlServerConnectionSa);
 
 
 WebApplication app =
@@ -60,7 +62,7 @@ app.UseCultureCookie();
 
 app.MapControllerRoute
 (
-    "defualt", "{controller=Test}/{action=Index}/{id?}"
+    "defualt", "{controller=Home}/{action=Index}/{id?}"
 );
 
 app.Run();

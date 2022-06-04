@@ -88,7 +88,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to server=.;database=NewDatabase1;user=sa;password=09030924381531;Persist Security Info=False.
+        ///   Looks up a localized string similar to server=.;database=PortFolioDb;user=sa;password=09030924381531;Persist Security Info=False.
         /// </summary>
         public static string SqlServerConnectionSa {
             get {
@@ -97,7 +97,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Server=.;Database=myDataBase;Trusted_Connection=True;.
+        ///   Looks up a localized string similar to Server=.;Database=PortFolioDbe;Trusted_Connection=True;.
         /// </summary>
         public static string SqlServerConnectionWindows {
             get {

@@ -1,15 +1,33 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Home Page";
+    string currentCulture = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
 }
+@if (currentCulture == "fa")
+{
+    <main class="main-wrapper">
 
-<main class="main-wrapper">
-
-    <partial name="PartialViews/_AboutMe"/>
-    <div class="container">
-        <hr>
-    </div>
-    <partial name="PartialViews/_SpicialProject"/>
-    <partial name="PartialViews/_LatestAticles"/>
+        <partial name="PartialViews/_AboutMe"/>
+        <div class="container">
+            <hr>
+        </div>
+        <partial name="PartialViews/_SpicialProject"/>
+        <partial name="PartialViews/_LatestAticles"/>
     
-<partial name="PartialViews/_Footer" />
-</main>
+        <partial name="PartialViews/_Footer" />
+    </main>
+}
+else
+{
+    <main class="main-wrapper">
+
+        <partial name="PartialViews/_AboutMe"/>
+        <div class="container">
+            <hr>
+        </div>
+        <partial name="PartialViews/_SpicialProject"/>
+        <partial name="PartialViews/_LatestAticles"/>
+    
+        <partial name="PartialViews/_Footer" />
+    </main>
+}
