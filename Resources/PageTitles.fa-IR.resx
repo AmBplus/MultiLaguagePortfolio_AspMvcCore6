@@ -132,6 +132,9 @@
   <data name="LatestArticlesCaption" xml:space="preserve">
     <value>تازه ترین مقالات</value>
   </data>
+  <data name="ReadMore" xml:space="preserve">
+    <value>ادامه مطب</value>
+  </data>
   <data name="SeeWork" xml:space="preserve">
     <value>دیدن نمونه کارها</value>
   </data>

@@ -73,19 +73,22 @@ namespace Server.Controllers
                 Id = 1,
                 Name = "امیر معصوم بیگی"
             });
+            Context.SaveChanges();
             Context.Clients.Add(new Client
             {
                 Id = 2,
                 Name = "Amir MassoumBeygi"
             });
+            Context.SaveChanges();
             Context.Clients.Add(new Client
             {
                 Id = 3,
                 Name = "Google"
             });
+            Context.SaveChanges();
             CreateArticleSample(path, p);
             CreateProjectSample(path, p);
-            Context.SaveChanges();
+
             if (httpReferer == null) return RedirectToAction("Index");
             return Redirect(httpReferer);
         }
@@ -102,15 +105,16 @@ namespace Server.Controllers
             string discription = SampleArticleTitle.GetEnglishDiscription();
             foreach (string article in articleFile)
             {
-                FileInfo ArticlefileInfo = new FileInfo(article);
+                string PathImage = article.Replace('\\', '/');
+
                 Context.EnglishArticles.Add(new EnglishArticle
                 {
                     ClientId = 2,
                     Title = englishArticleTitles[i],
-                    Image = $"{ArticlefileInfo.FullName}",
+                    Image = PathImage,
                     Description = discription
                 });
-                Context.SaveChanges();
+
                 if (i + 1 == englishArticleTitles.Count) break;
                 i++;
             }
@@ -121,23 +125,24 @@ namespace Server.Controllers
             IList<string> PersianTitle = SampleArticleTitle.GetPersianArticleTitles();
             foreach (string article in articleFile)
             {
-                FileInfo ArticlefileInfo = new(article);
+                string PathImage = article.Replace('\\', '/');
                 Context.PersianAticles.Add(new PersianAticle
                 {
                     ClientId = 1,
                     Title = PersianTitle[i],
-                    Image = $"{ArticlefileInfo.FullName}",
+                    Image = PathImage,
                     Description = discription
                 });
-                Context.SaveChanges();
+
                 if (i + 2 == PersianTitle.Count) break;
                 i++;
             }
+
+            Context.SaveChanges();
         }
 
         private void CreateProjectSample(string path, char p)
         {
-            string articlePath = path + p + "blog";
             string projectPath = path + p + "project";
             Console.WriteLine("null in context");
             string[] articleFile = Directory.GetFiles(projectPath);
@@ -148,16 +153,16 @@ namespace Server.Controllers
             foreach (string article in articleFile)
             {
                 flag = Convert.ToBoolean(i % 2);
-                FileInfo ArticlefileInfo = new FileInfo(article);
+                string PathImage = article.Replace('\\', '/');
                 Context.EnglishProjects.Add(new EnglishProject
                 {
                     ClientId = 2,
                     Title = englishArticleTitles[i],
-                    Image = $"{ArticlefileInfo.FullName}",
+                    Image = PathImage,
                     Description = discription,
                     IsSpecial = flag
                 });
-                Context.SaveChanges();
+
                 i++;
                 if (i + 2 == englishArticleTitles.Count) break;
             }
@@ -169,19 +174,21 @@ namespace Server.Controllers
             {
                 flag = Convert.ToBoolean(i % 2);
                 flag = Convert.ToBoolean(i % 2);
-                FileInfo ArticlefileInfo = new(article);
+                string PathImage = article.Replace('\\', '/');
                 Context.PersianProjects.Add(new PersianProject
                 {
                     ClientId = 1,
                     Title = PersianTitle[i],
-                    Image = $"{ArticlefileInfo.FullName}",
+                    Image = PathImage,
                     Description = discription,
                     IsSpecial = flag
                 });
-                Context.SaveChanges();
+
                 i++;
                 if (i + 2 == PersianTitle.Count) break;
             }
+
+            Context.SaveChanges();
         }
     }
 }

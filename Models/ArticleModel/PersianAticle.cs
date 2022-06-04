@@ -7,7 +7,7 @@ public class PersianAticle : IBaseModelDomain
     public string Description { get; set; }
     public string Image { get; set; }
     public int ClientId { get; set; }
-    public virtual Client Client { get; set; }
+
     public DateTime DateTime { get; set; }
 
     public PersianAticle()

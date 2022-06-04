@@ -132,6 +132,9 @@
   <data name="LatestArticlesCaption" xml:space="preserve">
     <value>Latest Articles</value>
   </data>
+  <data name="ReadMore" xml:space="preserve">
+    <value>Read More</value>
+  </data>
   <data name="SeeWork" xml:space="preserve">
     <value>See Sample Works</value>
   </data>

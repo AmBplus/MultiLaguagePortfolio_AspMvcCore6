@@ -14,5 +14,4 @@ public class EnglishArticle : IBaseModelDomain
     }
 
     public int ClientId { get; set; }
-    public virtual Client Client { get; set; }
 }

@@ -12,8 +12,8 @@ using Server;
 namespace Server.Migrations
 {
     [DbContext(typeof(PortfolioContext))]
-    [Migration("20220604214351_init_2")]
-    partial class init_2
+    [Migration("20220604223954_init_6")]
+    partial class init_6
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,21 +40,18 @@ namespace Server.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("varchar(450)");
+                        .HasColumnType("varchar(750)");
 
                     b.Property<string>("Image")
                         .IsRequired()
-                        .HasColumnType("nvarchar(150)");
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(80)
-                        .HasColumnType("nvarchar(80)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ClientId")
-                        .IsUnique();
 
                     b.ToTable("EnglishArticles");
                 });
@@ -75,21 +72,18 @@ namespace Server.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(750)");
 
                     b.Property<string>("Image")
                         .IsRequired()
-                        .HasColumnType("nvarchar(150)");
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(80)
-                        .HasColumnType("nvarchar(80)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ClientId")
-                        .IsUnique();
 
                     b.ToTable("PersianAticles");
                 });
@@ -97,14 +91,12 @@ namespace Server.Migrations
             modelBuilder.Entity("Models.Client", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(80)
+                        .HasColumnType("nvarchar(80)");
 
                     b.HasKey("Id");
 
@@ -127,24 +119,21 @@ namespace Server.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("varchar(450)");
+                        .HasColumnType("varchar(750)");
 
                     b.Property<string>("Image")
                         .IsRequired()
-                        .HasColumnType("nvarchar(150)");
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<bool>("IsSpecial")
                         .HasColumnType("bit");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(80)
-                        .HasColumnType("nvarchar(80)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ClientId")
-                        .IsUnique();
 
                     b.ToTable("EnglishProjects");
                 });
@@ -165,85 +154,23 @@ namespace Server.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(750)");
 
                     b.Property<string>("Image")
                         .IsRequired()
-                        .HasColumnType("nvarchar(150)");
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<bool>("IsSpecial")
                         .HasColumnType("bit");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(80)
-                        .HasColumnType("nvarchar(80)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClientId")
-                        .IsUnique();
-
                     b.ToTable("PersianProjects");
-                });
-
-            modelBuilder.Entity("Models.ArticleModel.EnglishArticle", b =>
-                {
-                    b.HasOne("Models.Client", "Client")
-                        .WithOne("EnglishArticle")
-                        .HasForeignKey("Models.ArticleModel.EnglishArticle", "ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Client");
-                });
-
-            modelBuilder.Entity("Models.ArticleModel.PersianAticle", b =>
-                {
-                    b.HasOne("Models.Client", "Client")
-                        .WithOne("PersianAticle")
-                        .HasForeignKey("Models.ArticleModel.PersianAticle", "ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Client");
-                });
-
-            modelBuilder.Entity("Models.ProjectModel.EnglishProject", b =>
-                {
-                    b.HasOne("Models.Client", "Client")
-                        .WithOne("EnglishProject")
-                        .HasForeignKey("Models.ProjectModel.EnglishProject", "ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Client");
-                });
-
-            modelBuilder.Entity("Models.ProjectModel.PersianProject", b =>
-                {
-                    b.HasOne("Models.Client", "Client")
-                        .WithOne("PersianProject")
-                        .HasForeignKey("Models.ProjectModel.PersianProject", "ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Client");
-                });
-
-            modelBuilder.Entity("Models.Client", b =>
-                {
-                    b.Navigation("EnglishArticle")
-                        .IsRequired();
-
-                    b.Navigation("EnglishProject")
-                        .IsRequired();
-
-                    b.Navigation("PersianAticle")
-                        .IsRequired();
-
-                    b.Navigation("PersianProject")
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

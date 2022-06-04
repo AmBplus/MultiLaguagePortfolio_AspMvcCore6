@@ -24,6 +24,7 @@ public class PortfolioContext : DbContext
         modelBuilder.ApplyConfiguration(new MapEnglishProject());
         modelBuilder.ApplyConfiguration(new MapPersianArticle());
         modelBuilder.ApplyConfiguration(new MapPersianProject());
+        modelBuilder.ApplyConfiguration(new MapClient());
         base.OnModelCreating(modelBuilder);
     }
 }
