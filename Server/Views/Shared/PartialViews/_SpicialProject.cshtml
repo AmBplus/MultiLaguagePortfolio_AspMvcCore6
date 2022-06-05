@@ -1,4 +1,5 @@
-﻿  @model Models.IBaseModelDomain[]
+﻿  @using Resources
+  @model Models.IBaseModelDomain[]
  <section class="featured-section p-3 p-lg-5">
     
      <div class="container">
@@ -10,7 +11,7 @@
                      <div class="card project-card">
                          <div class="row no-gutters">
                              <div class="col-lg-4 card-img-holder">
-                                 <img src="@(proje.Image[7..])" class="card-img" alt="image">
+                                 <img src="@(proje.Image)" class="card-img" alt="image">
                              </div>
                              <div class="col-lg-8">
                                  <div class="card-body">
@@ -22,7 +23,7 @@
                                      <p class="card-text">
                                          @proje.Description
                                      </p>
-                                     <p class="card-text"><small class="text-muted">Client:Google</small></p>
+                                     <p class="card-text"><small class="text-muted">@(PageTitles.performer) : @(proje.client.Name)</small></p>
                                  </div>
                              </div>
                          </div>

@@ -10,6 +10,7 @@ public class PersianProject : IBaseModelDomain
     public int ClientId { get; set; }
 
     public DateTime DateTime { get; set; }
+    public Client client { get; set; }
 
     public PersianProject()
     {

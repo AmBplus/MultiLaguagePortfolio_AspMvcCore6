@@ -11,7 +11,7 @@
                 {
                     <div class="col-md-4 mb-5">
                         <div class="card blog-post-card">
-                            <img class="card-img-top" src="@(article.Image[7..])" alt="image">
+                            <img class="card-img-top" src="@(article.Image)" alt="image">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <a class="theme-link" href="blog-post.html">
@@ -19,8 +19,9 @@
                                     </a>
                                 </h5>
                                 <p class="card-text">
-                                   @article.Description
+                                    @article.Description
                                 </p>
+
                                 <p class="mb-0"><a class="more-link" href="blog-post.html">@(Resources.PageTitles.ReadMore)</a></p>
                             </div>
                         </div>

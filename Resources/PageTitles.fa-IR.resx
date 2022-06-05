@@ -132,6 +132,9 @@
   <data name="LatestArticlesCaption" xml:space="preserve">
     <value>تازه ترین مقالات</value>
   </data>
+  <data name="performer" xml:space="preserve">
+    <value>انجام دهنده</value>
+  </data>
   <data name="ReadMore" xml:space="preserve">
     <value>ادامه مطب</value>
   </data>
@@ -140,5 +143,8 @@
   </data>
   <data name="SpicialWorkCaption" xml:space="preserve">
     <value>خاص ترین پروژه ها</value>
+  </data>
+  <data name="Writer" xml:space="preserve">
+    <value>نویسنده</value>
   </data>
 </root>

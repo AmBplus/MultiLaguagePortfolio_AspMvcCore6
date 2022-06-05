@@ -132,6 +132,9 @@
   <data name="LatestArticlesCaption" xml:space="preserve">
     <value>Latest Articles</value>
   </data>
+  <data name="performer" xml:space="preserve">
+    <value>Performer</value>
+  </data>
   <data name="ReadMore" xml:space="preserve">
     <value>Read More</value>
   </data>
@@ -140,5 +143,8 @@
   </data>
   <data name="SpicialWorkCaption" xml:space="preserve">
     <value>The Most Special Projects</value>
+  </data>
+  <data name="Writer" xml:space="preserve">
+    <value>Writer</value>
   </data>
 </root>

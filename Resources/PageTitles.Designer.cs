@@ -106,6 +106,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Performer.
+        /// </summary>
+        public static string performer {
+            get {
+                return ResourceManager.GetString("performer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Read More.
         /// </summary>
         public static string ReadMore {
@@ -129,6 +138,15 @@ namespace Resources {
         public static string SpicialWorkCaption {
             get {
                 return ResourceManager.GetString("SpicialWorkCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Writer.
+        /// </summary>
+        public static string Writer {
+            get {
+                return ResourceManager.GetString("Writer", resourceCulture);
             }
         }
     }
