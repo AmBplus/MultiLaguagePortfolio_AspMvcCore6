@@ -29,15 +29,19 @@ namespace Server.Controllers
             string currentCulture = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
             if (currentCulture == "fa")
             {
-                PersianProject[] spicialProject = Context.PersianProjects.Include(x=>x.client).Where(x => x.IsSpecial).ToArray();
-                PersianAticle[] latestArticle = Context.PersianAticles.Include(x=>x.client).OrderBy(x => x.DateTime).Take(8).ToArray();
+                PersianProject[] spicialProject =
+                    Context.PersianProjects.Include(x => x.client).Where(x => x.IsSpecial).ToArray();
+                PersianAticle[] latestArticle = Context.PersianAticles.Include(x => x.client).OrderBy(x => x.DateTime)
+                    .Take(8).ToArray();
                 Console.WriteLine("fa mode");
                 contextViewModel = new ContextViewModel(latestArticle, spicialProject);
             }
             else
             {
-                EnglishProject[] spicialProject = Context.EnglishProjects.Include(x=>x.client).Where(x => x.IsSpecial).ToArray();
-                EnglishArticle[] latestArticle = Context.EnglishArticles.Include(x=>x.client).OrderBy(x => x.DateTime).Take(8).ToArray();
+                EnglishProject[] spicialProject =
+                    Context.EnglishProjects.Include(x => x.client).Where(x => x.IsSpecial).ToArray();
+                EnglishArticle[] latestArticle = Context.EnglishArticles.Include(x => x.client).OrderBy(x => x.DateTime)
+                    .Take(8).ToArray();
                 contextViewModel = new ContextViewModel(latestArticle, spicialProject);
                 Console.WriteLine("en` mode");
             }
@@ -104,13 +108,13 @@ namespace Server.Controllers
             string discription = SampleArticleTitle.GetEnglishDiscription();
             foreach (string article in articleFile)
             {
-                string PathImage = (article.Replace('\\', '/'))[7..];
+                string PathImage = article.Replace('\\', '/')[7..];
 
                 Context.EnglishArticles.Add(new EnglishArticle
                 {
                     ClientId = 2,
                     Title = englishArticleTitles[i],
-                    Image = PathImage,
+                    ImagePath = PathImage,
                     Description = discription
                 });
 
@@ -124,12 +128,13 @@ namespace Server.Controllers
             IList<string> PersianTitle = SampleArticleTitle.GetPersianArticleTitles();
             foreach (string article in articleFile)
             {
-                string PathImage = (article.Replace('\\', '/'))[7..];;
+                string PathImage = article.Replace('\\', '/')[7..];
+                ;
                 Context.PersianAticles.Add(new PersianAticle
                 {
                     ClientId = 1,
                     Title = PersianTitle[i],
-                    Image = PathImage,
+                    ImagePath = PathImage,
                     Description = discription
                 });
 
@@ -152,12 +157,13 @@ namespace Server.Controllers
             foreach (string article in articleFile)
             {
                 flag = Convert.ToBoolean(i % 2);
-                string PathImage = (article.Replace('\\', '/'))[7..];;
+                string PathImage = article.Replace('\\', '/')[7..];
+                ;
                 Context.EnglishProjects.Add(new EnglishProject
                 {
                     ClientId = 2,
                     Title = englishArticleTitles[i],
-                    Image = PathImage,
+                    ImagePath = PathImage,
                     Description = discription,
                     IsSpecial = flag
                 });
@@ -173,12 +179,13 @@ namespace Server.Controllers
             {
                 flag = Convert.ToBoolean(i % 2);
                 flag = Convert.ToBoolean(i % 2);
-                string PathImage = (article.Replace('\\', '/'))[7..];;
+                string PathImage = article.Replace('\\', '/')[7..];
+                ;
                 Context.PersianProjects.Add(new PersianProject
                 {
                     ClientId = 1,
                     Title = PersianTitle[i],
-                    Image = PathImage,
+                    ImagePath = PathImage,
                     Description = discription,
                     IsSpecial = flag
                 });

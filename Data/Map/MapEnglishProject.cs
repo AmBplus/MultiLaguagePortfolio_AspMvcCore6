@@ -13,6 +13,6 @@ public class MapEnglishProject : IEntityTypeConfiguration<EnglishProject>
         builder.Property(x => x.Title).HasMaxLength(200);
         builder.Property(x => x.Id).ValueGeneratedOnAdd();
         builder.Property(x => x.Description).HasColumnType("varchar(750)");
-        builder.Property(x => x.Image).HasColumnType("nvarchar(250)");
+        builder.Property(x => x.ImagePath).HasColumnType("nvarchar(250)");
     }
 }
